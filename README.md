@@ -9,6 +9,7 @@ Welcome to the Project Starter Scripts repository. This repository contains vari
 The first script in this repository generates a .NET solution that follows Clean Architecture and Domain-Driven Design (DDD) principles. It creates a structure with multiple projects representing key components of the architecture.
 
 ### Features of the Clean Architecture + DDD Script
+
 - **Domain**: Contains domain entities, interfaces, and validation logic.
 - **Application**: Includes application logic, interfaces, mappings, and services.
 - **Infra.Data**: Encompasses database configurations, Entity Framework Core repositories, and data contexts.

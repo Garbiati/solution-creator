@@ -1,0 +1,18 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy AS build
+
+RUN apt-get update && apt-get install -y --no-install-recommends unzip \
+    && curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l /vsdbg
+
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
+RUN sed -i 's/MinProtocol = TLSv1.2/MinProtocol = TLSv1/g' /etc/ssl/openssl.cnf
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /usr/lib/ssl/openssl.cnf
+RUN sed -i 's/MinProtocol = TLSv1.2/MinProtocol = TLSv1/g' /usr/lib/ssl/openssl.cnf
+
+ENV ASPNETCORE_URLS=http://+:8000
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV DOTNET_CLI_HOME="/tmp/dotnet"
+
+WORKDIR /app
+EXPOSE 8000 9229
+
+CMD ["dotnet", "watch", "--project", "Reminder.Api", "run", "--build", "--no-launch-profile"]
