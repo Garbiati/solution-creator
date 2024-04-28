@@ -10,8 +10,8 @@ fi
 cd "$PROJECT_DIRECTORY"
 
 # Set the project name
-project_name=${1:-Garbiati}
+PROJECT_NAME=${1:-Garbiati}
 
 # Create a solution
-dotnet new sln -n "$project_name"
-echo "Created a new solution file named $project_name."
+dotnet new sln -n "$PROJECT_NAME"
+echo "Created a new solution file named $PROJECT_NAME."

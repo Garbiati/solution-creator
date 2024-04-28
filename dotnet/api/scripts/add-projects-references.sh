@@ -10,13 +10,13 @@ fi
 cd "$PROJECT_DIRECTORY"
 
 # Set the project name
-project_name=${1:-Garbiati}
+PROJECT_NAME=${1:-Garbiati}
 
 # Add project references
-dotnet add "./$project_name.Application/$project_name.Application.csproj" reference "./$project_name.Domain/$project_name.Domain.csproj"
-dotnet add "./$project_name.Api/$project_name.Api.csproj" reference "./$project_name.Infra.IoC/$project_name.Infra.IoC.csproj"
-dotnet add "./$project_name.Infra.Data/$project_name.Infra.Data.csproj" reference "./$project_name.Domain/$project_name.Domain.csproj"
-dotnet add "./$project_name.Infra.IoC/$project_name.Infra.IoC.csproj" reference "./$project_name.Domain/$project_name.Domain.csproj" "./$project_name.Infra.Data/$project_name.Infra.Data.csproj"
-dotnet add "./$project_name.Domain.Tests/$project_name.Domain.Tests.csproj" reference "./$project_name.Domain/$project_name.Domain.csproj"
+dotnet add "./$PROJECT_NAME.Application/$PROJECT_NAME.Application.csproj" reference "./$PROJECT_NAME.Domain/$PROJECT_NAME.Domain.csproj"
+dotnet add "./$PROJECT_NAME.Api/$PROJECT_NAME.Api.csproj" reference "./$PROJECT_NAME.Infra.IoC/$PROJECT_NAME.Infra.IoC.csproj"
+dotnet add "./$PROJECT_NAME.Infra.Data/$PROJECT_NAME.Infra.Data.csproj" reference "./$PROJECT_NAME.Domain/$PROJECT_NAME.Domain.csproj"
+dotnet add "./$PROJECT_NAME.Infra.IoC/$PROJECT_NAME.Infra.IoC.csproj" reference "./$PROJECT_NAME.Domain/$PROJECT_NAME.Domain.csproj" "./$PROJECT_NAME.Infra.Data/$PROJECT_NAME.Infra.Data.csproj"
+dotnet add "./$PROJECT_NAME.Domain.Tests/$PROJECT_NAME.Domain.Tests.csproj" reference "./$PROJECT_NAME.Domain/$PROJECT_NAME.Domain.csproj"
 
 echo "Added project references."

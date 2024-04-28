@@ -10,7 +10,7 @@ fi
 cd "$PROJECT_DIRECTORY"
 
 # Set the project name
-project_name=${1:-Garbiati}
+PROJECT_NAME=${1:-Garbiati}
 
 # Initialize the Git repository
 git init
