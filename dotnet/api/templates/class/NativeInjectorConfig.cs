@@ -1,29 +1,24 @@
-using Reminder.Application.Interfaces;
-using Reminder.Application.Mappings;
-using Reminder.Application.Services;
-using Reminder.Domain.Interfaces;
-using Reminder.Infra.Data.Context;
-using Reminder.Infra.Data.Repositories;
+using {{ PROJECT_NAME}}.Application.Interfaces;
+using {{ PROJECT_NAME}}.Application.Mappings;
+using {{ PROJECT_NAME}}.Application.Services;
+using {{ PROJECT_NAME}}.Domain.Interfaces;
+using {{ PROJECT_NAME}}.Infra.Data.Context;
+using {{ PROJECT_NAME}}.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 
-namespace Reminder.Infra.IoC
+namespace {{PROJECT_NAME}}.Infra.IoC
 {
     public static class NativeInjectorConfig
+{
+    public static void RegisterServices(this IServiceCollection services, IConfiguration configuration)
     {
-        public static void RegisterServices(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+        services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-            services.AddScoped<IEventAggregateRepository, EventAggregateRepository>();
-            services.AddScoped<IEventAggregateService, EventAggregateService>();
-
-            services.AddAutoMapper(typeof(MappingProfile));
-        }
+        services.AddAutoMapper(typeof(MappingProfile));
     }
+}
 }
