@@ -2,25 +2,31 @@ version: '3.9'
 
 services:
   webapi:
+    container_name: "{{PROJECT_NAME}}.Api"
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: "{{PROJECT_NAME}}.Api/Dockerfile.live"
+    user: 1000:1000
     ports:
-      - "5000:80"  # Mapeia a porta 5000 no host para a porta 80 no contêiner
+      - "8000:80"
+      - "9229:9229"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    restart: always  # Reinicia o contêiner automaticamente em caso de falha
-  
+      - ASPNETCORE_ENVIRONMENT=DockerCompose
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    restart: always
   db:
     image: postgres:latest
     environment:
-      POSTGRES_DB: dbReminder
-      POSTGRES_USER: appUserReminder
-      POSTGRES_PASSWORD: appPasswordReminder
+      POSTGRES_DB: db{{PROJECT_NAME}}
+      POSTGRES_USER: u{{PROJECT_NAME}}
+      POSTGRES_PASSWORD: p{{PROJECT_NAME}}
     ports:
-      - "5440:5432"
+      - "54321:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - pgdata_{{PROJECT_NAME}}:/var/lib/postgresql/data
 
 volumes:
-  pgdata:
+  pgdata_{{PROJECT_NAME}}:

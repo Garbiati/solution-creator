@@ -1,19 +1,7 @@
 #!/bin/bash
 
-# Check if PROJECT_DIRECTORY is set
-if [ -z "$PROJECT_DIRECTORY" ]; then
-    echo "Error: PROJECT_DIRECTORY is not set."
-    exit 1
-fi
-
-# Navigate to the project directory
-cd "$PROJECT_DIRECTORY"
-
-# Set the project name
-project_name=${1:-Garbiati}
-
 # Update the Program.cs in the Api project
-cat > "$project_name.Api/Program.cs" <<EOL
+cat > "$PROJECT_NAME.Api/Program.cs" <<EOL
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -44,14 +32,14 @@ void ConfigurePipeline(WebApplication app)
     app.MapHealthChecks("/health");
 }
 EOL
-echo "Updated Program.cs in the Api project."
+print_info "Updated Program.cs in the Api project."
 
 # Update the launchSettings.json in the Api project
-mkdir -p "$project_name.Api/Properties"
-cat > "$project_name.Api/Properties/launchSettings.json" <<EOL
+mkdir -p "$PROJECT_NAME.Api/Properties"
+cat > "$PROJECT_NAME.Api/Properties/launchSettings.json" <<EOL
 {
   "profiles": {
-    "$project_name.Api": {
+    "$PROJECT_NAME.Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
@@ -63,6 +51,4 @@ cat > "$project_name.Api/Properties/launchSettings.json" <<EOL
   }
 }
 EOL
-echo "Updated launchSettings.json in the Api project."
-
-echo "done"
+print_info "Updated launchSettings.json in the Api project."
