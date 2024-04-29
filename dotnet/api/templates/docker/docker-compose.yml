@@ -2,13 +2,20 @@ version: '3.9'
 
 services:
   webapi:
+    container_name: "{{PROJECT_NAME}}.Api"
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: "{{PROJECT_NAME}}.Api/Dockerfile.live"
+    user: 1000:1000
     ports:
-      - "5000:80"
+      - "8000:80"
+      - "9229:9229"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=DockerCompose
+    volumes:
+      - .:/app
+    depends_on:
+      - db
     restart: always
   db:
     image: postgres:latest
@@ -19,7 +26,7 @@ services:
     ports:
       - "54321:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - pgdata_{{PROJECT_NAME}}:/var/lib/postgresql/data
 
 volumes:
-  pgdata:
+  pgdata_{{PROJECT_NAME}}:
