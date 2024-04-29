@@ -1,17 +1,12 @@
 #!/bin/bash
 
-# Check if PROJECT_DIRECTORY is set
-if [ -z "$PROJECT_DIRECTORY" ]; then
-    echo "Error: PROJECT_DIRECTORY is not set."
-    exit 1
-fi
+# Create solution directory
+create_directory "$PROJECT_DIRECTORY"
+print_info "Created project directory at $PROJECT_DIRECTORY"
 
 # Navigate to the project directory
-cd "$PROJECT_DIRECTORY"
-
-# Set the project name
-PROJECT_NAME=${1:-Garbiati}
+navigate_to_project_directory
+print_info "Navigated to the project directory."
 
 # Create a solution
 dotnet new sln -n "$PROJECT_NAME"
-echo "Created a new solution file named $PROJECT_NAME."

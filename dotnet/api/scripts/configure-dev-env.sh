@@ -1,20 +1,8 @@
 #!/bin/bash
 
-# Check if PROJECT_DIRECTORY is set
-if [ -z "$PROJECT_DIRECTORY" ]; then
-    echo "Error: PROJECT_DIRECTORY is not set."
-    exit 1
-fi
-
-# Navigate to the project directory
-cd "$PROJECT_DIRECTORY"
-
-# Set the project name
-PROJECT_NAME=${1:-Garbiati}
-
 # Create the .vscode directory
-mkdir -p ".vscode"
-echo "Created .vscode directory."
+create_directory ".vscode"
+print_info "Created .vscode directory."
 
 # Extract .NET Core version from the .csproj file
 net_version=$(grep '<TargetFramework>' "$PROJECT_NAME.Api/$PROJECT_NAME.Api.csproj" | awk -F'[<>]' '{print $3}' | sed 's/netcoreapp//;s/[^0-9.]*//g')
@@ -73,7 +61,7 @@ cat > ".vscode/launch.json" <<EOL
     ]
 }
 EOL
-echo "Created and configured launch.json in .vscode directory."
+print_info "Created and configured launch.json in .vscode directory."
 
 # Create and configure tasks.json for build and run tasks
 cat > ".vscode/tasks.json" <<EOL
@@ -140,4 +128,4 @@ cat > ".vscode/tasks.json" <<EOL
     ]
 }
 EOL
-echo "Created and configured tasks.json in .vscode directory."
+print_info "Created and configured tasks.json in .vscode directory."

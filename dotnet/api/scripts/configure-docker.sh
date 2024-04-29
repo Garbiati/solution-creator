@@ -1,15 +1,13 @@
 #!/bin/bash
 
-# Check if PROJECT_DIRECTORY is set
-if [ -z "$PROJECT_DIRECTORY" ]; then
-    echo "Error: PROJECT_DIRECTORY is not set."
-    exit 1
-fi
+# Ensure the Dockerfile template exists using the defined path
+validate_file "$DOCKERFILE_TEMPLATE_PATH"
 
-# Navigate to the project directory
-cd "$PROJECT_DIRECTORY"
+# Path to the new Dockerfile within the .Api directory
+NEW_DOCKERFILE="$PROJECT_NAME.Api/Dockerfile"
 
-# Set the project name
-PROJECT_NAME=${1:-Garbiati}
+# Use 'sed' to replace placeholders with the project name
+sed "s/{{PROJECT_NAME}}/$PROJECT_NAME/g" "$DOCKERFILE_TEMPLATE_PATH" > "$NEW_DOCKERFILE"
 
-echo "done"
+# Confirm successful creation
+validate_file "$NEW_DOCKERFILE"
