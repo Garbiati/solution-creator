@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using Reminder.Api.Extensions;
-using Reminder.Infra.Data.Context;
-using Reminder.Infra.Data.Helpers.Data;
-using Reminder.Infra.IoC;
+using {{ PROJECT_NAME}}.Api.Extensions;
+using {{ PROJECT_NAME}}.Infra.Data.Context;
+using {{ PROJECT_NAME}}.Infra.Data.Helpers.Data;
+using {{ PROJECT_NAME}}.Infra.IoC;
 
 
 var builder = WebApplication.CreateBuilder(args);

@@ -2,13 +2,13 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "Debug Reminder.Api",
+        "name": "Debug {{PROJECT_NAME}}.Api",
         "type": "coreclr",
         "request": "launch",
         "preLaunchTask": "build",
-        "program": "${workspaceFolder}/Reminder.Api/bin/Debug/net8.0/Reminder.Api.dll",
+        "program": "${workspaceFolder}/{{PROJECT_NAME}}.Api/bin/Debug/net8.0/{{PROJECT_NAME}}.Api.dll",
         "args": [],
-        "cwd": "${workspaceFolder}/Reminder.Api",
+        "cwd": "${workspaceFolder}/{{PROJECT_NAME }.Api",
         "stopAtEntry": false,
         "serverReadyAction": {
           "action": "openExternally",
@@ -29,7 +29,7 @@
         "pipeTransport": {
           "pipeCwd": "${workspaceFolder}",
           "pipeProgram": "docker",
-          "pipeArgs": ["exec", "-i", "ptm-reminder-local"],
+          "pipeArgs": ["exec", "-i", "{{PROJECT_NAME}}Api"],
           "debuggerPath": "/vsdbg/vsdbg",
           "quoteArgs": false
         },
@@ -39,4 +39,3 @@
       }
     ]
   }
-  

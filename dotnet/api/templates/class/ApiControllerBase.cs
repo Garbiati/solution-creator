@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Reminder.Api.Controllers.Shared;
+namespace {{PROJECT_NAME}}.Api.Controllers.Shared;
 
 [ApiController]
-[Route("api/reminder/v{version:apiVersion}/[controller]")]
+[Route("api/{{PROJECT_NAME}}/v{version:apiVersion}/[controller]")]
 public class ApiControllerBase : ControllerBase { }

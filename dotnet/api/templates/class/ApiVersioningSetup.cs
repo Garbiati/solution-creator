@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Reminder.Api.Extensions;
+namespace {{PROJECT_NAME}}.Api.Extensions;
 
 public static class ApiVersioningSetup
 {

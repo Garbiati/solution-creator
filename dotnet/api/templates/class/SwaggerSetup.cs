@@ -5,10 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using Microsoft.Extensions.DependencyInjection;
 
-
-
-
-namespace Reminder.Api.Extensions;
+namespace {{PROJECT_NAME}}.Api.Extensions;
 
 public static class SwaggerSetup
 {
@@ -19,13 +16,13 @@ public static class SwaggerSetup
         {
             options.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "Reminder Api",
+                Title = "{{PROJECT_NAME}} Api",
                 Version = "v1"
             });
 
             options.SwaggerDoc("v2", new OpenApiInfo
             {
-                Title = "Reminder Api",
+                Title = "{{PROJECT_NAME}} Api",
                 Version = "v2"
             });
 
