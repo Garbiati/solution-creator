@@ -15,3 +15,8 @@ print_info "Added Entity Framework Core Tools for migrations to Infra.Data."
 
 # Add AutoMapper packages to the Infra.IoC project
 print_info add "$PROJECT_NAME.Infra.IoC/$PROJECT_NAME.Infra.IoC.csproj" package AutoMapper.Extensions.Microsoft
+print_info add "$PROJECT_NAME.Application/$PROJECT_NAME.Application.csproj" package AutoMapper.Extensions.Microsoft
+
+# Add Api Versioning packages to the API project
+dotnet add "$PROJECT_NAME.Api/$PROJECT_NAME.Api.csproj" package Microsoft.AspNetCore.Mvc.Versioning
+dotnet add "$PROJECT_NAME.Api/$PROJECT_NAME.Api.csproj" package Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer

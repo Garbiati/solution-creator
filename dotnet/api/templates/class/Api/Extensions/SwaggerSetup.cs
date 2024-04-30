@@ -1,9 +1,6 @@
 using System.Reflection;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Builder;
-using Swashbuckle.AspNetCore.SwaggerUI;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace {{PROJECT_NAME}}.Api.Extensions;
 
