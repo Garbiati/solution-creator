@@ -8,6 +8,10 @@ rm "$PROJECT_NAME.Infra.IoC/Class1.cs"
 rm "$PROJECT_NAME.Api/$PROJECT_NAME.Api.http"
 print_info "Removed automatically created Class1.cs files."
 
+
+mkdir -p ".config"
+mkdir -p ".vscode"
+
 # Create basic structures for Domain, Application, and Infra.Data
 mkdir -p "$PROJECT_NAME.Domain/Aggregates"
 mkdir -p "$PROJECT_NAME.Domain/Common"

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using CleanArchitecture.Persistence.Repositories;
+using {{PROJECT_NAME}}.Persistence.Repositories;
 using {{PROJECT_NAME}}.Domain.Entities;
 using {{PROJECT_NAME}}.Domain.Interfaces;
 using {{PROJECT_NAME}}.Domain.Validations;

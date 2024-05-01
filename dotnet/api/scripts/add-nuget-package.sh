@@ -13,9 +13,9 @@ print_info "Added Entity Framework Core PostgreSQL provider to Infra.Data."
 dotnet add "$PROJECT_NAME.Infra.Data/$PROJECT_NAME.Infra.Data.csproj" package Microsoft.EntityFrameworkCore.Tools
 print_info "Added Entity Framework Core Tools for migrations to Infra.Data."
 
-# Add AutoMapper packages to the Infra.IoC project
-print_info add "$PROJECT_NAME.Infra.IoC/$PROJECT_NAME.Infra.IoC.csproj" package AutoMapper.Extensions.Microsoft
-print_info add "$PROJECT_NAME.Application/$PROJECT_NAME.Application.csproj" package AutoMapper.Extensions.Microsoft
+# Add AutoMapper packages
+dotnet add "$PROJECT_NAME.Application/$PROJECT_NAME.Application.csproj" package AutoMapper
+print_info add "$PROJECT_NAME.Application/$PROJECT_NAME.Application.csproj" package AutoMapper
 
 # Add Api Versioning packages to the API project
 dotnet add "$PROJECT_NAME.Api/$PROJECT_NAME.Api.csproj" package Microsoft.AspNetCore.Mvc.Versioning
