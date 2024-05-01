@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using {{ PROJECT_NAME}}.Api.Extensions;
-using {{ PROJECT_NAME}}.Infra.Data.Context;
-using {{ PROJECT_NAME}}.Infra.Data.Helpers.Data;
-using {{ PROJECT_NAME}}.Infra.IoC;
+using {{PROJECT_NAME}}.Api.Extensions;
+using {{PROJECT_NAME}}.Infra.Data.Context;
+using {{PROJECT_NAME}}.Infra.Data.Helpers.Data;
+using {{PROJECT_NAME}}.Infra.IoC;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,13 +17,13 @@ builder.Services.AddHealthChecks();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("DockerCompose"))
+if (app.Environment.IsDevelopment())
 {
     app.ConfigureSwaggerUI();
-    using var scope = app.Services.CreateScope();
-    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    dbContext.Database.Migrate();
-    SeedData.Initialize(dbContext);
+    //using var scope = app.Services.CreateScope();
+    ///var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    //dbContext.Database.Migrate();
+    //SeedData.Initialize(dbContext);
 }
 app.UseHttpsRedirection();
 app.UseRouting();
@@ -31,5 +31,3 @@ app.MapHealthChecks("/health");
 app.MapControllers();
 
 app.Run();
-
-

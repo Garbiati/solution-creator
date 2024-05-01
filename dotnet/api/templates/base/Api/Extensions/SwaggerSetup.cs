@@ -1,9 +1,6 @@
 using System.Reflection;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Builder;
-using Swashbuckle.AspNetCore.SwaggerUI;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace {{PROJECT_NAME}}.Api.Extensions;
 
@@ -26,9 +23,9 @@ public static class SwaggerSetup
                 Version = "v2"
             });
 
-            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-            options.IncludeXmlComments(xmlPath);
+            // var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            // var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            // options.IncludeXmlComments(xmlPath);
         });
     }
     public static void ConfigureSwaggerUI(this WebApplication app)
