@@ -19,3 +19,10 @@ validate_file "$NEW_INFRA_DATA_REPOSITORIES_EXAMPLEREPOSITORY"
 validate_file "$NEW_INFRA_DATA_REPOSITORIES_BASEREPOSITORY"
 
 print_info "Created infrastructure data structures."
+
+
+# Change PrivateAssets to none in Microsoft.EntityFrameworkCore.Design
+PATH_INFRA_DATA_CSPROJ="$PROJECT_NAME.Infra.Data/$PROJECT_NAME.Infra.Data.csproj"
+sed -i '/Microsoft.EntityFrameworkCore.Design/,/PackageReference>/{
+    /PrivateAssets/s/all/none/
+}' $PATH_INFRA_DATA_CSPROJ

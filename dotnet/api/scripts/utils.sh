@@ -78,3 +78,31 @@ navigate_to_project_directory() {
         exit 1
     }
 }
+
+# Function to docker-compose up
+docker_compose_up() {
+    docker-compose up -d --build
+}
+
+# Function to docker-compose down
+docker_compose_down() {
+    docker-compose down
+}
+
+# Function to run dotnet restore
+dotnet_restore()
+{
+    dotnet restore
+}
+
+dotnet_ef_migrations_add() {
+    dotnet ef migrations add $1 --project $PROJECT_NAME.Infra.Data --startup-project $PROJECT_NAME.Api
+}
+
+dotnet_ef_migrations_remove() {
+    dotnet ef migrations remove --project $PROJECT_NAME.Infra.Data --startup-project $PROJECT_NAME.Api
+}
+
+dotnet_ef_migrations_update() {
+    dotnet ef database update --project $PROJECT_NAME.Infra.Data --startup-project $PROJECT_NAME.Api
+}

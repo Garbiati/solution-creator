@@ -20,10 +20,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.ConfigureSwaggerUI();
-    //using var scope = app.Services.CreateScope();
-    ///var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    //dbContext.Database.Migrate();
-    //SeedData.Initialize(dbContext);
+    using var scope = app.Services.CreateScope();
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    dbContext.Database.Migrate();
+    SeedData.Initialize(dbContext);
 }
 app.UseHttpsRedirection();
 app.UseRouting();
