@@ -8,7 +8,7 @@
         "preLaunchTask": "build",
         "program": "${workspaceFolder}/{{PROJECT_NAME}}.Api/bin/Debug/net8.0/{{PROJECT_NAME}}.Api.dll",
         "args": [],
-        "cwd": "${workspaceFolder}/{{PROJECT_NAME }.Api",
+        "cwd": "${workspaceFolder}/{{PROJECT_NAME}}.Api",
         "stopAtEntry": false,
         "serverReadyAction": {
           "action": "openExternally",
