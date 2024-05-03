@@ -15,6 +15,8 @@ export TEMPLATES_PATH="$RUN_PATH/templates"
 
 # Include utility functions
 source "${SCRIPTS_PATH}/utils.sh"
+source "${SCRIPTS_PATH}/utils.docker.sh"
+source "${SCRIPTS_PATH}/utils.dotnet.sh"
 
 print_info "Running scripts..."
 # Run the scripts
