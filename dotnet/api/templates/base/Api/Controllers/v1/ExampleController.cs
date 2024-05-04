@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using {{PROJECT_NAME}}.Api.Controllers.Shared;
-using {{PROJECT_NAME}}.Application.Interfaces;
-using {{PROJECT_NAME}}.Application.Services;
-using {{PROJECT_NAME}}.Application.ViewModels.Example;
-using {{PROJECT_NAME}}.Application.ViewModels;
+using {{SOLUTION_NAME}}.Api.Controllers.Shared;
+using {{SOLUTION_NAME}}.Application.Interfaces;
+using {{SOLUTION_NAME}}.Application.Services;
+using {{SOLUTION_NAME}}.Application.ViewModels.Example;
+using {{SOLUTION_NAME}}.Application.ViewModels;
 
-namespace {{PROJECT_NAME}}.Api.Controllers.v1
+namespace {{SOLUTION_NAME}}.Api.Controllers.v1
 {
     [ApiVersion("1.0")]
     public class ExampleController : ApiControllerBase

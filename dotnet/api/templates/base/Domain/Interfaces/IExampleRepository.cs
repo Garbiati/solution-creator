@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using {{PROJECT_NAME}}.Domain.Entities;
+using {{SOLUTION_NAME}}.Domain.Entities;
 
-namespace {{PROJECT_NAME}}.Domain.Interfaces;
+namespace {{SOLUTION_NAME}}.Domain.Interfaces;
 
 public interface IExampleRepository : IBaseRepository<Example>
 {

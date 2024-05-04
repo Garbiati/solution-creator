@@ -1,12 +1,12 @@
 using System;
 using AutoMapper;
-using {{PROJECT_NAME}}.Application.Interfaces;
-using {{PROJECT_NAME}}.Application.ViewModels;
-using {{PROJECT_NAME}}.Application.ViewModels.Example;
-using {{PROJECT_NAME}}.Domain.Entities;
-using {{PROJECT_NAME}}.Domain.Interfaces;
+using {{SOLUTION_NAME}}.Application.Interfaces;
+using {{SOLUTION_NAME}}.Application.ViewModels;
+using {{SOLUTION_NAME}}.Application.ViewModels.Example;
+using {{SOLUTION_NAME}}.Domain.Entities;
+using {{SOLUTION_NAME}}.Domain.Interfaces;
 
-namespace {{PROJECT_NAME}}.Application.Services;
+namespace {{SOLUTION_NAME}}.Application.Services;
 public class ExampleService : IExampleService
 {
     private readonly IMapper _mapper;

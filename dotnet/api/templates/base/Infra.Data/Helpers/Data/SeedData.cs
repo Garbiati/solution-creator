@@ -1,8 +1,8 @@
-using {{PROJECT_NAME}}.Domain.Entities;
-using {{PROJECT_NAME}}.Infra.Data.Context;
+using {{SOLUTION_NAME}}.Domain.Entities;
+using {{SOLUTION_NAME}}.Infra.Data.Context;
 using System;
 
-namespace {{PROJECT_NAME}}.Infra.Data.Helpers.Data
+namespace {{SOLUTION_NAME}}.Infra.Data.Helpers.Data
 {
     public static class SeedData
     {

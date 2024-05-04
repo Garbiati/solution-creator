@@ -15,4 +15,4 @@ ENV DOTNET_CLI_HOME="/tmp/dotnet"
 WORKDIR /app
 EXPOSE 8000 9229
 
-CMD ["dotnet", "watch", "--project", "{{PROJECT_NAME}}.Api", "run", "--build", "--no-launch-profile"]
+CMD ["dotnet", "watch", "--project", "{{SOLUTION_NAME}}.Api", "run", "--build", "--no-launch-profile"]

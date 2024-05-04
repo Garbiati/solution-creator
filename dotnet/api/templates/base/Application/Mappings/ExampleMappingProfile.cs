@@ -1,8 +1,8 @@
 using AutoMapper;
-using {{PROJECT_NAME}}.Application.ViewModels.Example;
-using {{PROJECT_NAME}}.Domain.Entities;
+using {{SOLUTION_NAME}}.Application.ViewModels.Example;
+using {{SOLUTION_NAME}}.Domain.Entities;
 
-namespace {{PROJECT_NAME}}.Application.Mappings
+namespace {{SOLUTION_NAME}}.Application.Mappings
 {
     public class ExampleMappingProfile : Profile
 {

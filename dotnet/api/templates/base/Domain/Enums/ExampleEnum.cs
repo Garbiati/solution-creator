@@ -1,4 +1,4 @@
-namespace {{PROJECT_NAME}}.Domain.Enums;
+namespace {{SOLUTION_NAME}}.Domain.Enums;
 public enum ExampleEnum
 {
     None = 0,

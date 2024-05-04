@@ -2,7 +2,7 @@ using System.Reflection;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.OpenApi.Models;
 
-namespace {{PROJECT_NAME}}.Api.Extensions;
+namespace {{SOLUTION_NAME}}.Api.Extensions;
 
 public static class SwaggerSetup
 {
@@ -13,13 +13,13 @@ public static class SwaggerSetup
         {
             options.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "{{PROJECT_NAME}} Api",
+                Title = "{{SOLUTION_NAME}} Api",
                 Version = "v1"
             });
 
             options.SwaggerDoc("v2", new OpenApiInfo
             {
-                Title = "{{PROJECT_NAME}} Api",
+                Title = "{{SOLUTION_NAME}} Api",
                 Version = "v2"
             });
 

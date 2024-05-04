@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using {{PROJECT_NAME}}.Domain.Entities;
+using {{SOLUTION_NAME}}.Domain.Entities;
 
-namespace {{PROJECT_NAME}}.Infra.Data.EntitiesConfiguration;
+namespace {{SOLUTION_NAME}}.Infra.Data.EntitiesConfiguration;
 
 public class ExampleConfiguration : IEntityTypeConfiguration<Example>
 {

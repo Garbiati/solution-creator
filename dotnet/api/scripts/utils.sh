@@ -31,17 +31,17 @@ print_info() {
 }
 
 # Function to validate the project name
-validate_project_name() {
-    if [ -z "$PROJECT_NAME" ]; then
-        print_error "Error: PROJECT_NAME is not set."
+validate_SOLUTION_NAME() {
+    if [ -z "$SOLUTION_NAME" ]; then
+        print_error "Error: SOLUTION_NAME is not set."
         exit 1
     fi
 }
 
 # Function to validate the project directory
-validate_project_directory() {
-    if [ -z "$PROJECT_DIRECTORY" ]; then
-        print_error "Error: PROJECT_DIRECTORY is not set."
+validate_SOLUTION_DIRECTORY() {
+    if [ -z "$SOLUTION_DIRECTORY" ]; then
+        print_error "Error: SOLUTION_DIRECTORY is not set."
         exit 1
     fi
 }
@@ -72,9 +72,9 @@ validate_file() {
 }
 
 # Function to navigate to the project directory
-navigate_to_project_directory() {
-    cd "$PROJECT_DIRECTORY" || {
-        print_error "Error: Could not navigate to the project directory '$PROJECT_DIRECTORY'."
+navigate_to_SOLUTION_DIRECTORY() {
+    cd "$SOLUTION_DIRECTORY" || {
+        print_error "Error: Could not navigate to the project directory '$SOLUTION_DIRECTORY'."
         exit 1
     }
 }
@@ -96,13 +96,13 @@ dotnet_restore()
 }
 
 dotnet_ef_migrations_add() {
-    dotnet ef migrations add $1 --project $PROJECT_NAME.Infra.Data --startup-project $PROJECT_NAME.Api
+    dotnet ef migrations add $1 --project $SOLUTION_NAME.Infra.Data --startup-project $SOLUTION_NAME.Api
 }
 
 dotnet_ef_migrations_remove() {
-    dotnet ef migrations remove --project $PROJECT_NAME.Infra.Data --startup-project $PROJECT_NAME.Api
+    dotnet ef migrations remove --project $SOLUTION_NAME.Infra.Data --startup-project $SOLUTION_NAME.Api
 }
 
 dotnet_ef_migrations_update() {
-    dotnet ef database update --project $PROJECT_NAME.Infra.Data --startup-project $PROJECT_NAME.Api
+    dotnet ef database update --project $SOLUTION_NAME.Infra.Data --startup-project $SOLUTION_NAME.Api
 }
