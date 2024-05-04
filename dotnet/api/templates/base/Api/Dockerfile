@@ -2,20 +2,20 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy AS publish
 
 WORKDIR /src
-COPY ["{{PROJECT_NAME}}.Api/{{PROJECT_NAME}}.Api.csproj", "{{PROJECT_NAME}}.Api/"]
-COPY ["{{PROJECT_NAME}}.Application/{{PROJECT_NAME}}.Application.csproj", "{{PROJECT_NAME}}.Application/"]
-COPY ["{{PROJECT_NAME}}.Domain/{{PROJECT_NAME}}.Domain.csproj", "{{PROJECT_NAME}}.Domain/"]
-COPY ["{{PROJECT_NAME}}.Domain.Tests/{{PROJECT_NAME}}.Domain.Tests.csproj", "{{PROJECT_NAME}}.Domain.Tests/"]
-COPY ["{{PROJECT_NAME}}.Infra.Data/{{PROJECT_NAME}}.Infra.Data.csproj", "{{PROJECT_NAME}}.Infra.Data/"]
-COPY ["{{PROJECT_NAME}}.Infra.IoC/{{PROJECT_NAME}}.Infra.IoC.csproj", "{{PROJECT_NAME}}.Infra.IoC/"]
+COPY ["{{SOLUTION_NAME}}.Api/{{SOLUTION_NAME}}.Api.csproj", "{{SOLUTION_NAME}}.Api/"]
+COPY ["{{SOLUTION_NAME}}.Application/{{SOLUTION_NAME}}.Application.csproj", "{{SOLUTION_NAME}}.Application/"]
+COPY ["{{SOLUTION_NAME}}.Domain/{{SOLUTION_NAME}}.Domain.csproj", "{{SOLUTION_NAME}}.Domain/"]
+COPY ["{{SOLUTION_NAME}}.Domain.Tests/{{SOLUTION_NAME}}.Domain.Tests.csproj", "{{SOLUTION_NAME}}.Domain.Tests/"]
+COPY ["{{SOLUTION_NAME}}.Infra.Data/{{SOLUTION_NAME}}.Infra.Data.csproj", "{{SOLUTION_NAME}}.Infra.Data/"]
+COPY ["{{SOLUTION_NAME}}.Infra.IoC/{{SOLUTION_NAME}}.Infra.IoC.csproj", "{{SOLUTION_NAME}}.Infra.IoC/"]
 
-RUN dotnet restore "{{PROJECT_NAME}}.Api/"
+RUN dotnet restore "{{SOLUTION_NAME}}.Api/"
 RUN dotnet tool restore
 
 COPY . .
 
-WORKDIR "/src/{{PROJECT_NAME}}.Api"
-RUN dotnet publish "{{PROJECT_NAME}}.Api.csproj" -c Release -o /app/publish --no-restore
+WORKDIR "/src/{{SOLUTION_NAME}}.Api"
+RUN dotnet publish "{{SOLUTION_NAME}}.Api.csproj" -c Release -o /app/publish --no-restore
 WORKDIR "/src"
 
 # Etapa de execução
@@ -27,4 +27,4 @@ RUN chmod -R a+w /app
 USER app
 ENV ASPNETCORE_URLS=http://+:8000
 EXPOSE 8000
-ENTRYPOINT ["dotnet", "{{PROJECT_NAME}}.Api.dll"]
+ENTRYPOINT ["dotnet", "{{SOLUTION_NAME}}.Api.dll"]

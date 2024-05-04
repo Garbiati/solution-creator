@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace {{PROJECT_NAME}}.Api.Extensions;
+namespace {{SOLUTION_NAME}}.Api.Extensions;
 
 public static class ApiVersioningSetup
 {

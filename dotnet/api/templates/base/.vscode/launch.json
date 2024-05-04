@@ -2,13 +2,13 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "Debug {{PROJECT_NAME}}.Api",
+        "name": "Debug {{SOLUTION_NAME}}.Api",
         "type": "coreclr",
         "request": "launch",
         "preLaunchTask": "build",
-        "program": "${workspaceFolder}/{{PROJECT_NAME}}.Api/bin/Debug/net8.0/{{PROJECT_NAME}}.Api.dll",
+        "program": "${workspaceFolder}/{{SOLUTION_NAME}}.Api/bin/Debug/net8.0/{{SOLUTION_NAME}}.Api.dll",
         "args": [],
-        "cwd": "${workspaceFolder}/{{PROJECT_NAME}}.Api",
+        "cwd": "${workspaceFolder}/{{SOLUTION_NAME}}.Api",
         "stopAtEntry": false,
         "serverReadyAction": {
           "action": "openExternally",
@@ -29,7 +29,7 @@
         "pipeTransport": {
           "pipeCwd": "${workspaceFolder}",
           "pipeProgram": "docker",
-          "pipeArgs": ["exec", "-i", "{{PROJECT_NAME}}Api"],
+          "pipeArgs": ["exec", "-i", "{{SOLUTION_NAME}}Api"],
           "debuggerPath": "/vsdbg/vsdbg",
           "quoteArgs": false
         },

@@ -1,4 +1,4 @@
-namespace {{PROJECT_NAME}}.Application.ViewModels;
+namespace {{SOLUTION_NAME}}.Application.ViewModels;
 public class PagedResult<T>
 {
     public IEnumerable<T> Items { get; set; } = Enumerable.Empty<T>();

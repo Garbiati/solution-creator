@@ -22,15 +22,15 @@ dotnet_tools_update() {
 }
 
 dotnet_ef_migrations_add() {
-    dotnet ef migrations add $1 --project $PROJECT_NAME.Infra.Data --startup-project $PROJECT_NAME.Api
+    dotnet ef migrations add $1 --project $SOLUTION_NAME.Infra.Data --startup-project $SOLUTION_NAME.Api
 }
 
 dotnet_ef_migrations_remove() {
-    dotnet ef migrations remove --project $PROJECT_NAME.Infra.Data --startup-project $PROJECT_NAME.Api
+    dotnet ef migrations remove --project $SOLUTION_NAME.Infra.Data --startup-project $SOLUTION_NAME.Api
 }
 
 dotnet_ef_migrations_update() {
-    dotnet ef database update --project $PROJECT_NAME.Infra.Data --startup-project $PROJECT_NAME.Api
+    dotnet ef database update --project $SOLUTION_NAME.Infra.Data --startup-project $SOLUTION_NAME.Api
 }
 
 

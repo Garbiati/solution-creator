@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using {{PROJECT_NAME}}.Persistence.Repositories;
-using {{PROJECT_NAME}}.Domain.Entities;
-using {{PROJECT_NAME}}.Domain.Interfaces;
-using {{PROJECT_NAME}}.Domain.Validations;
-using {{PROJECT_NAME}}.Infra.Data.Context;
+using {{SOLUTION_NAME}}.Persistence.Repositories;
+using {{SOLUTION_NAME}}.Domain.Entities;
+using {{SOLUTION_NAME}}.Domain.Interfaces;
+using {{SOLUTION_NAME}}.Domain.Validations;
+using {{SOLUTION_NAME}}.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace {{PROJECT_NAME}}.Infra.Data.Repositories;
+namespace {{SOLUTION_NAME}}.Infra.Data.Repositories;
 
 public class ExampleRepository : BaseRepository<Example>, IExampleRepository
 {

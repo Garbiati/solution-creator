@@ -1,10 +1,10 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using {{PROJECT_NAME}}.Domain.Common;
-using {{PROJECT_NAME}}.Domain.Enums;
-using {{PROJECT_NAME}}.Domain.Validations;
+using {{SOLUTION_NAME}}.Domain.Common;
+using {{SOLUTION_NAME}}.Domain.Enums;
+using {{SOLUTION_NAME}}.Domain.Validations;
 
-namespace {{PROJECT_NAME}}.Domain.Entities;
+namespace {{SOLUTION_NAME}}.Domain.Entities;
 
 public class Example : BaseEntity
 {

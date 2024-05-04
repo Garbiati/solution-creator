@@ -1,9 +1,9 @@
-using {{PROJECT_NAME}}.Domain.Common;
-using {{PROJECT_NAME}}.Domain.Interfaces;
-using {{PROJECT_NAME}}.Infra.Data.Context;
+using {{SOLUTION_NAME}}.Domain.Common;
+using {{SOLUTION_NAME}}.Domain.Interfaces;
+using {{SOLUTION_NAME}}.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace {{PROJECT_NAME}}.Persistence.Repositories;
+namespace {{SOLUTION_NAME}}.Persistence.Repositories;
 
 public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
 {

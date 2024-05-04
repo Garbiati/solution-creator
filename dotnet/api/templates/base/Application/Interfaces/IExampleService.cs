@@ -1,7 +1,7 @@
-using {{PROJECT_NAME}}.Application.ViewModels;
-using {{PROJECT_NAME}}.Application.ViewModels.Example;
+using {{SOLUTION_NAME}}.Application.ViewModels;
+using {{SOLUTION_NAME}}.Application.ViewModels.Example;
 
-namespace {{PROJECT_NAME}}.Application.Interfaces;
+namespace {{SOLUTION_NAME}}.Application.Interfaces;
 public interface IExampleService
 {
     Task CreateExample(ExampleViewModel exampleViewModel);

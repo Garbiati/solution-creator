@@ -1,15 +1,15 @@
-using {{PROJECT_NAME}}.Application.Interfaces;
-using {{PROJECT_NAME}}.Application.Mappings;
-using {{PROJECT_NAME}}.Application.Services;
-using {{PROJECT_NAME}}.Domain.Interfaces;
-using {{PROJECT_NAME}}.Infra.Data.Context;
-using {{PROJECT_NAME}}.Infra.Data.Repositories;
+using {{SOLUTION_NAME}}.Application.Interfaces;
+using {{SOLUTION_NAME}}.Application.Mappings;
+using {{SOLUTION_NAME}}.Application.Services;
+using {{SOLUTION_NAME}}.Domain.Interfaces;
+using {{SOLUTION_NAME}}.Infra.Data.Context;
+using {{SOLUTION_NAME}}.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 
-namespace {{PROJECT_NAME}}.Infra.IoC
+namespace {{SOLUTION_NAME}}.Infra.IoC
 {
     public static class NativeInjectorConfig
 {

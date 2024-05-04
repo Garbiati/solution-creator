@@ -4,13 +4,13 @@ services:
   db:
     image: postgres:latest
     environment:
-      POSTGRES_DB: db{{PROJECT_NAME}}
-      POSTGRES_USER: u{{PROJECT_NAME}}
-      POSTGRES_PASSWORD: p{{PROJECT_NAME}}
+      POSTGRES_DB: db{{SOLUTION_NAME}}
+      POSTGRES_USER: u{{SOLUTION_NAME}}
+      POSTGRES_PASSWORD: p{{SOLUTION_NAME}}
     ports:
       - "54321:5432"
     volumes:
-      - pgdata_{{PROJECT_NAME}}:/var/lib/postgresql/data
+      - pgdata_{{SOLUTION_NAME}}:/var/lib/postgresql/data
 
 volumes:
-  pgdata_{{PROJECT_NAME}}:
+  pgdata_{{SOLUTION_NAME}}:

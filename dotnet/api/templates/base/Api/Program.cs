@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using {{PROJECT_NAME}}.Api.Extensions;
-using {{PROJECT_NAME}}.Infra.Data.Context;
-using {{PROJECT_NAME}}.Infra.Data.Helpers.Data;
-using {{PROJECT_NAME}}.Infra.IoC;
+using {{SOLUTION_NAME}}.Api.Extensions;
+using {{SOLUTION_NAME}}.Infra.Data.Context;
+using {{SOLUTION_NAME}}.Infra.Data.Helpers.Data;
+using {{SOLUTION_NAME}}.Infra.IoC;
 
 
 var builder = WebApplication.CreateBuilder(args);

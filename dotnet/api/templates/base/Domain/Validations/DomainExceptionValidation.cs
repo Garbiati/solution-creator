@@ -1,4 +1,4 @@
-namespace {{PROJECT_NAME}}.Domain.Validations;
+namespace {{SOLUTION_NAME}}.Domain.Validations;
 public class DomainExceptionValidation : Exception
 {
     public DomainExceptionValidation(string error) : base(error)

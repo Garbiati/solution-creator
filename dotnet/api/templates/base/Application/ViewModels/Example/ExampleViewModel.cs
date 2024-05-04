@@ -1,8 +1,8 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using {{PROJECT_NAME}}.Domain.Enums;
+using {{SOLUTION_NAME}}.Domain.Enums;
 
-namespace {{PROJECT_NAME}}.Application.ViewModels.Example;
+namespace {{SOLUTION_NAME}}.Application.ViewModels.Example;
 
 public class ExampleViewModel
 {

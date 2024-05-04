@@ -5,7 +5,7 @@
         "label": "build",
         "command": "dotnet",
         "type": "process",
-        "args": ["build", "${workspaceFolder}/{{PROJECT_NAME}}.Api/{{PROJECT_NAME}}.Api.csproj"],
+        "args": ["build", "${workspaceFolder}/{{SOLUTION_NAME}}.Api/{{SOLUTION_NAME}}.Api.csproj"],
         "problemMatcher": "$msCompile",
         "group": {
           "kind": "build",
@@ -16,7 +16,7 @@
         "label": "run",
         "command": "dotnet",
         "type": "process",
-        "args": ["run", "${workspaceFolder}/{{PROJECT_NAME}}.Api/{{PROJECT_NAME}}.Api.csproj"],
+        "args": ["run", "${workspaceFolder}/{{SOLUTION_NAME}}.Api/{{SOLUTION_NAME}}.Api.csproj"],
         "problemMatcher": "$msCompile",
         "group": {
           "kind": "build",
@@ -29,7 +29,7 @@
         "type": "process",
         "args": [
           "test",
-          "${workspaceFolder}/{{PROJECT_NAME}}.Domain.Tests/{{PROJECT_NAME}}.Domain.Tests.csproj"
+          "${workspaceFolder}/{{SOLUTION_NAME}}.Domain.Tests/{{SOLUTION_NAME}}.Domain.Tests.csproj"
         ],
         "problemMatcher": "$msCompile",
         "group": {
@@ -44,7 +44,7 @@
         "args": [
           "watch",
           "run",
-          "${workspaceFolder}/{{PROJECT_NAME}}.Api/{{PROJECT_NAME}}.Api.csproj"
+          "${workspaceFolder}/{{SOLUTION_NAME}}.Api/{{SOLUTION_NAME}}.Api.csproj"
         ],
         "problemMatcher": "$msCompile",
         "group": {

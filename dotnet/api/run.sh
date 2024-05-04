@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Set the environment variable for the project name
-export PROJECT_NAME=${1:-Garbiati}
+export SOLUTION_NAME=${1:-Garbiati}
 
 # Set the environment variable for the project directory
-export PROJECT_DIRECTORY="$HOME/$PROJECT_NAME"
+export SOLUTION_DIRECTORY="$HOME/$SOLUTION_NAME"
 
 # Set the current directory as the main path
 export RUN_PATH=$(cd "$(dirname "$0")" && pwd)
@@ -38,4 +38,4 @@ run_script "configure-git-repository"
 # Final confirmation message
 print_success "Script executed successfully!"
 
-code $PROJECT_DIRECTORY
+code $SOLUTION_DIRECTORY
