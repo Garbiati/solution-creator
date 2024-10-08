@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   db:
     image: postgres:latest
@@ -8,7 +6,7 @@ services:
       POSTGRES_USER: u{{SOLUTION_NAME}}
       POSTGRES_PASSWORD: p{{SOLUTION_NAME}}
     ports:
-      - "54321:5432"
+      - "54320:5432"
     volumes:
       - pgdata_{{SOLUTION_NAME}}:/var/lib/postgresql/data
 
