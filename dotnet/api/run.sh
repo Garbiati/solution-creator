@@ -1,5 +1,20 @@
 #!/bin/bash
 
+# Function to handle replacing the existing solution directory
+handle_replace_directory() {
+    if [[ -d "$SOLUTION_DIRECTORY" ]]; then
+        print_info "Removing existing directory: $SOLUTION_DIRECTORY"
+        if ! rm -rf "$SOLUTION_DIRECTORY"; then
+            print_error "Failed to remove the existing directory: $SOLUTION_DIRECTORY"
+            return 1
+        fi
+        print_success "Directory removed: $SOLUTION_DIRECTORY"
+    else
+        print_info "Directory $SOLUTION_DIRECTORY does not exist, no need to remove."
+    fi
+}
+
+
 # Set the environment variable for the project name
 export SOLUTION_NAME=${1:-Garbiati}
 
@@ -17,6 +32,11 @@ export TEMPLATES_PATH="$RUN_PATH/templates"
 source "${SCRIPTS_PATH}/utils.sh"
 source "${SCRIPTS_PATH}/utils.docker.sh"
 source "${SCRIPTS_PATH}/utils.dotnet.sh"
+
+# Check for --replace argument and handle directory removal
+if [[ "$2" == "--replace" ]]; then
+    handle_replace_directory || exit 1
+fi
 
 print_info "Running scripts..."
 # Run the scripts

@@ -24,12 +24,13 @@ install_docker_compose() {
 
 # Function to docker-compose up
 docker_compose_up() {
-    docker-compose up -d --build
+    docker compose up -d --build
+    echo "Docker compose up executado com sucesso."
 }
 
 # Function to docker-compose down
 docker_compose_down() {
-    docker-compose down
+    docker compose down
 }
 
 remove_docker_volume() {
