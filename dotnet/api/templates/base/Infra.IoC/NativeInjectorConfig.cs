@@ -12,17 +12,17 @@ using Microsoft.Extensions.DependencyInjection;
 namespace {{SOLUTION_NAME}}.Infra.IoC
 {
     public static class NativeInjectorConfig
-{
-    public static void RegisterServices(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+        public static void RegisterServices(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
-        services.AddScoped<IExampleService, ExampleService>();
-        services.AddScoped<IExampleRepository, ExampleRepository>();
+            services.AddScoped<IExampleService, ExampleService>();
+            services.AddScoped<IExampleRepository, ExampleRepository>();
 
-        services.AddAutoMapper(typeof(ExampleMappingProfile));
+            services.AddAutoMapper(typeof(ExampleMappingProfile));
 
+        }
     }
-}
 }

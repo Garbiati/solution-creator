@@ -20,3 +20,6 @@ print_info add "$SOLUTION_NAME.Application/$SOLUTION_NAME.Application.csproj" pa
 # Add Api Versioning packages to the API project
 dotnet add "$SOLUTION_NAME.Api/$SOLUTION_NAME.Api.csproj" package Microsoft.AspNetCore.Mvc.Versioning
 dotnet add "$SOLUTION_NAME.Api/$SOLUTION_NAME.Api.csproj" package Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer
+
+# Add dotnetenv package to the API project
+dotnet add "$SOLUTION_NAME.Api/$SOLUTION_NAME.Api.csproj" package DotNetEnv
