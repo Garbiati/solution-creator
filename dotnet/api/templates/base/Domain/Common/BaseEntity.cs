@@ -11,7 +11,7 @@ public abstract class BaseEntity
     public DateTimeOffset CreatedAt { get; set; }
     public DateTimeOffset? UpdatedAt { get; set; }
     [Required]
-    [DefaultValue(true)]
-    public bool Active { get; set; } = true;
-    public DateTimeOffset? DisabledAt { get; set; }
+    [DefaultValue(false)]
+    public bool IsDeleted { get; set; } = false;
+    public DateTimeOffset? DeletedAt { get; set; }
 }
