@@ -1,6 +1,9 @@
 using {{SOLUTION_NAME}}.Domain.Entities;
 using {{SOLUTION_NAME}}.Infra.Data.Context;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
 
 namespace {{SOLUTION_NAME}}.Infra.Data.Helpers.Data
 {
@@ -10,66 +13,51 @@ namespace {{SOLUTION_NAME}}.Infra.Data.Helpers.Data
         {
             if (!context.Examples.Any())
             {
-                var example = new Example
+                var random = new Random();
+
+                for (int i = 0; i < 10; i++)
                 {
-                    Name = "Example 1",
-                    Description = "Description 1",
-                    StartAt = DateTimeOffset.UtcNow,
-                    EndAt = DateTimeOffset.UtcNow,
-                    Price = 10,
-                    ExampleEnum = Domain.Enums.ExampleEnum.Value1
-                };
+                    var example = new Example
+                    {
+                        Id = Guid.NewGuid(),
+                        StringExample = $"Example of string field {i + 1}",
+                        StringExampleWithMaxLenght = $"Example with max length {i + 1}",
+                        TextExample = $"Example of text field {i + 1}",
+                        StringNullableExample = random.NextDouble() < 0.5 ? null : $"Example of nullable string field {i + 1}",
+                        DateTimeOffsetExample = DateTimeOffset.UtcNow.AddDays(random.Next(1, 365)), // Convertendo para UTC
+                        DateTimeOffsetNullableExample = random.NextDouble() < 0.5 ? null : (DateTimeOffset?)DateTimeOffset.UtcNow.AddDays(random.Next(1, 365)), // Convertendo para UTC
+                        DateTimeExample = DateTime.UtcNow.AddDays(random.Next(1, 365)), // Convertendo para UTC
+                        DateTimeNullableExample = random.NextDouble() < 0.5 ? null : (DateTime?)DateTime.UtcNow.AddDays(random.Next(1, 365)), // Convertendo para UTC
+                        IntExample = RandomNumberGenerator.GetInt32(1, 100),
+                        IntNullExample = random.NextDouble() < 0.5 ? null : (int?)RandomNumberGenerator.GetInt32(1, 100),
+                        LongExample = random.NextInt64(),
+                        LongNullExample = random.NextDouble() < 0.5 ? null : (long?)random.NextInt64(),
+                        DecimalExample = new decimal(random.NextDouble() * (9999999999999999.99 - 0.01) + 0.01),
+                        DecimalNullExample = random.NextDouble() < 0.5 ? null : (decimal?)(new decimal(random.NextDouble() * (9999999999999999.99 - 0.01) + 0.01)),
+                        EnumExample = (Domain.Enums.ExampleEnum)random.Next(0, Enum.GetValues(typeof(Domain.Enums.ExampleEnum)).Length),
+                        ExampleItems = GenerateExampleItems(random, 3) // Gerar 3 itens por exemplo
+                    };
 
-
-                var example2 = new Example
-                {
-                    Name = "Example 2",
-                    Description = "Description 2",
-                    StartAt = DateTimeOffset.UtcNow,
-                    EndAt = DateTimeOffset.UtcNow,
-                    Price = 20,
-                    ExampleEnum = Domain.Enums.ExampleEnum.Value2
-                };
-
-                var example3 = new Example
-                {
-                    Name = "Example 3",
-                    Description = "Description 3",
-                    StartAt = DateTimeOffset.UtcNow,
-                    EndAt = DateTimeOffset.UtcNow,
-                    Price = 30,
-                    ExampleEnum = Domain.Enums.ExampleEnum.Value3
-                };
-
-                var example4 = new Example
-                {
-                    Name = "Example 4",
-                    Description = "Description 4",
-                    StartAt = DateTimeOffset.UtcNow,
-                    EndAt = DateTimeOffset.UtcNow,
-                    Price = 40,
-                    ExampleEnum = Domain.Enums.ExampleEnum.Value3
-                };
-
-                var example5 = new Example
-                {
-                    Name = "Example 5",
-                    Description = "Description 5",
-                    Optional = "Optional 5",
-                    StartAt = DateTimeOffset.UtcNow,
-                    EndAt = DateTimeOffset.UtcNow,
-                    Price = 50,
-                    ExampleEnum = Domain.Enums.ExampleEnum.Value2
-                };
-
-                context.Examples.Add(example);
-                context.Examples.Add(example2);
-                context.Examples.Add(example3);
-                context.Examples.Add(example4);
-                context.Examples.Add(example5);
+                    context.Add(example);
+                }
 
                 context.SaveChanges();
             }
+        }
+
+        private static List<ExampleItem> GenerateExampleItems(Random random, int count)
+        {
+            var items = new List<ExampleItem>();
+            for (int i = 0; i < count; i++)
+            {
+                items.Add(new ExampleItem
+                {
+                    Name = $"Example Item {i + 1} string field",
+                    Description = $"Description {i + 1} of Example Item string field",
+                    Quantity = random.Next(1, 10)
+                });
+            }
+            return items;
         }
     }
 }
