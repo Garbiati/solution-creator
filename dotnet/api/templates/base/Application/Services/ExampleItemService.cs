@@ -6,9 +6,9 @@ using AutoMapper;
 
 namespace {{SOLUTION_NAME}}.Application.Services;
 
-public class ExampleService : ServiceBase<Example, ExampleDTO, ExampleCreateDTO, ExampleUpdateDTO>, IExampleService
+public class ExampleItemService : ServiceBase<ExampleItem, ExampleItemDTO, ExampleItemCreateDTO, ExampleItemUpdateDTO>, IExampleItemService
 {
-    public ExampleService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
+    public ExampleItemService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
     {
     }
 }
