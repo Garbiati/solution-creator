@@ -1,8 +1,8 @@
 using AutoMapper;
-using Heimdall.Application.DTO.Example;
-using Heimdall.Domain.Entities;
+using {{SOLUTION_NAME}}.Application.DTO.Example;
+using {{SOLUTION_NAME}}.Domain.Entities;
 
-namespace Heimdall.Application.Mappings
+namespace {{SOLUTION_NAME}}.Application.Mappings
 {
     public class MappingProfile : Profile
     {
