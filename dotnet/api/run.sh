@@ -22,7 +22,7 @@ export SOLUTION_NAME=${1:-Garbiati}
 export DB_EXTERNAL_PORT=$((1000 + RANDOM % 8999))
 
 # Set the environment variable for the project directory
-export SOLUTION_DIRECTORY="$HOME/$SOLUTION_NAME"
+export SOLUTION_DIRECTORY="$HOME/Projects/$SOLUTION_NAME"
 
 # Set the current directory as the main path
 export RUN_PATH=$(cd "$(dirname "$0")" && pwd)
