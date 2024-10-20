@@ -11,7 +11,7 @@ public class Example : BaseEntity
     [MaxLength(1000)]
     public string StringExampleWithMaxLenght { get; set; } = string.Empty;
 
-    public string? StringNullableExample { get; set; } = null
+    public string? StringNullableExample { get; set; } = null;
 
     public string? TextExample { get; set; } = null;
 
