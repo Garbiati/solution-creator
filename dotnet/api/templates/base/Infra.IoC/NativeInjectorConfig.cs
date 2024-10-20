@@ -2,7 +2,7 @@ using {{SOLUTION_NAME}}.Application.Interfaces;
 using {{SOLUTION_NAME}}.Application.Mappings;
 using {{SOLUTION_NAME}}.Application.Services;
 
-//using Heimdall.Application.Services;
+//using {{SOLUTION_NAME}}.Application.Services;
 using {{SOLUTION_NAME}}.Domain.Interfaces;
 using {{SOLUTION_NAME}}.Infra.Data.Context;
 using {{SOLUTION_NAME}}.Infra.Data.Repositories;

@@ -11,6 +11,8 @@ namespace {{SOLUTION_NAME}}.Infra.Data.Context
 
         public DbSet<Example> Examples { get; set; }
 
+        public DbSet<ExampleItem> ExampleItems { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
