@@ -1,11 +1,8 @@
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using {{SOLUTION_NAME}}.Domain.Common;
 using {{SOLUTION_NAME}}.Domain.Enums;
-using {{SOLUTION_NAME}}.Domain.Validations;
 
 namespace {{SOLUTION_NAME}}.Domain.Entities;
-
 public class Example : BaseEntity
 {
     [Required]
