@@ -9,32 +9,42 @@ namespace {{SOLUTION_NAME}}.Domain.Entities;
 public class Example : BaseEntity
 {
     [Required]
-    [MaxLength(100)]
-    public string Name { get; set; } = string.Empty;
+    public string StringExample { get; set; } = string.Empty;
 
     [MaxLength(1000)]
-    public string Description { get; set; } = string.Empty;
+    public string StringExampleWithMaxLenght { get; set; } = string.Empty;
 
-    public string? Optional { get; set; }
+    public string? StringNullableExample { get; set; } = null
 
-    [Required]
-    public DateTimeOffset StartAt { get; set; }
-
-    [Required]
-    public DateTimeOffset EndAt { get; set; }
+    public string? TextExample { get; set; } = null;
 
     [Required]
-    public decimal Price { get; set; }
+    public DateTimeOffset DateTimeOffsetExample { get; set; }
 
-    public ExampleEnum ExampleEnum { get; set; }
+    public DateTimeOffset? DateTimeOffsetNullableExample { get; set; }
 
+    [Required]
+    public DateTime DateTimeExample { get; set; }
 
-    public void IsValid()
-    {
-        DomainExceptionValidation.When(string.IsNullOrEmpty(Name), "Name is required");
-        DomainExceptionValidation.When(StartAt > EndAt, "StartAt cannot be greater than EndAt");
-        DomainExceptionValidation.When(Price <= 0, "Price must be greater than 0");
-        DomainExceptionValidation.When(ExampleEnum == ExampleEnum.None, "ExampleEnum is required");
-    }
+    public DateTime? DateTimeNullableExample { get; set; }
+
+    [Required]
+    public int IntExample { get; set; }
+
+    public int? IntNullExample { get; set; }
+
+    [Required]
+    public decimal DecimalExample { get; set; }
+
+    public decimal? DecimalNullExample { get; set; }
+
+    public long LongExample { get; set; }
+
+    public long? LongNullExample { get; set; }
+
+    [Required]
+    public ExampleEnum EnumExample { get; set; }
+
+    public virtual ICollection<ExampleItem>? ExampleItems { get; set; }
 
 }
