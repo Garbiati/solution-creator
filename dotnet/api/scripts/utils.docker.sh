@@ -36,7 +36,8 @@ docker_compose_down() {
 remove_docker_volume() {
     local project_name=$1
     local project_name_lower=$(echo "$project_name" | tr '[:upper:]' '[:lower:]')
-    local volume_name="${project_name_lower}_pgdata_${project_name}"
+    local project_name_upper=$(echo "$project_name" | tr '[:lower:]' '[:upper:]')
+    local volume_name="${project_name_lower}_pgdata_${project_name_upper}"
 
     echo "Attempting to remove Docker volume: $volume_name"
     docker volume rm "$volume_name"
