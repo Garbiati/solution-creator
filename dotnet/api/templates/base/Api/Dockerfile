@@ -1,4 +1,3 @@
-# Etapa de build
 FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy AS publish
 
 WORKDIR /src

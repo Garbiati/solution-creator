@@ -23,9 +23,9 @@ public static class SwaggerSetup
                 Version = "v2"
             });
 
-            // var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            // var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-            // options.IncludeXmlComments(xmlPath);
+            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            options.IncludeXmlComments(xmlPath);
         });
     }
     public static void ConfigureSwaggerUI(this WebApplication app)
@@ -36,7 +36,7 @@ public static class SwaggerSetup
             var apiVersionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
             if (apiVersionProvider == null)
             {
-                throw new InvalidOperationException("IApiVersionDescriptionProvider não está registrado.");
+                throw new InvalidOperationException("IApiVersionDescriptionProvider is not available.");
             }
             foreach (var description in apiVersionProvider.ApiVersionDescriptions)
             {
