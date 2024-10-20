@@ -2,39 +2,59 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using {{SOLUTION_NAME}}.Domain.Entities;
 
-namespace {{SOLUTION_NAME}}.Infra.Data.EntitiesConfiguration;
-
-public class ExampleConfiguration : IEntityTypeConfiguration<Example>
+namespace {{SOLUTION_NAME}}.Infra.Data.EntitiesConfiguration
 {
-    public void Configure(EntityTypeBuilder<Example> builder)
-    {
-        builder.HasKey(t => t.Id);
-        builder.Property(p => p.Name).HasMaxLength(100).IsRequired();
-        builder.Property(p => p.Description).HasMaxLength(1000);
-        builder.Property(p => p.Optional).HasMaxLength(100);
-        builder.Property(p => p.StartAt).IsRequired();
-        builder.Property(p => p.EndAt).IsRequired();
-        builder.Property(p => p.Price).IsRequired();
-        builder.Property(p => p.ExampleEnum).IsRequired().HasConversion<int>();
+       public class ExampleConfiguration : BaseEntityConfiguration<Example>
+       {
+              public override void Configure(EntityTypeBuilder<Example> builder)
+              {
+                     base.Configure(builder);
 
-        builder.Property(p => p.CreatedAt)
-               .IsRequired()
-               .HasDefaultValueSql("CURRENT_TIMESTAMP")
-               .ValueGeneratedOnAdd();
+                     builder.Property(e => e.StringExample)
+                            .IsRequired();
 
-        builder.Property(p => p.UpdatedAt)
-               .IsRequired(false)
-               .ValueGeneratedOnUpdate();
+                     builder.Property(e => e.StringExampleWithMaxLenght)
+                            .HasMaxLength(100)
+                            .IsRequired();
 
-        builder.Property(p => p.Active)
-                       .IsRequired()
-                       .HasDefaultValue(true);
+                     builder.Property(e => e.StringNullableExample);
 
-        builder.Property(p => p.DisabledAt)
-               .IsRequired(false);
+                     builder.Property(e => e.TextExample)
+                            .HasColumnType("text");
 
-        // Indexes
-        builder.HasIndex(p => p.Name);
-        builder.HasIndex(p => p.Active);
-    }
+                     builder.Property(e => e.DateTimeOffsetExample)
+                            .IsRequired();
+
+                     builder.Property(e => e.DateTimeOffsetNullableExample);
+
+                     builder.Property(e => e.DateTimeExample)
+                            .IsRequired();
+
+                     builder.Property(e => e.DateTimeNullableExample);
+
+                     builder.Property(e => e.IntExample)
+                            .IsRequired();
+
+                     builder.Property(e => e.IntNullExample);
+
+                     builder.Property(e => e.LongExample)
+                            .IsRequired();
+
+                     builder.Property(e => e.LongNullExample);
+
+                     builder.Property(e => e.DecimalExample)
+                            .HasColumnType("decimal(18,2)")
+                            .IsRequired();
+
+                     builder.Property(e => e.DecimalNullExample)
+                            .HasColumnType("decimal(18,2)");
+
+                     builder.Property(e => e.EnumExample)
+                            .IsRequired();
+
+                     builder.HasMany(e => e.ExampleItems)
+                            .WithOne(e => e.Example)
+                            .HasForeignKey(e => e.ExampleId);
+              }
+       }
 }
