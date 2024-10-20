@@ -5,6 +5,7 @@ using {{SOLUTION_NAME}}.Infra.Data.Context;
 using {{SOLUTION_NAME}}.Infra.Data.Helpers.Data;
 using {{SOLUTION_NAME}}.Infra.IoC;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 Env.Load("../.env");
