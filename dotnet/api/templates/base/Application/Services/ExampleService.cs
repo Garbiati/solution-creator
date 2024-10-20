@@ -34,7 +34,7 @@ public class ExampleService : IExampleService
         {
             throw new ArgumentOutOfRangeException(nameof(pageSize));
         }
-        var examples = _exampleRepository.GetByName(filterName, pageNumber, pageSize);
+        var examples = await _exampleRepository.GetByName(filterName, pageNumber, pageSize);
 
         var count = await _exampleRepository.CountByName(filterName);
 
@@ -90,9 +90,9 @@ public class ExampleService : IExampleService
         return _mapper.Map<ExampleViewModel>(await _exampleRepository.GetAsync(id));
     }
 
-    public Task UpdateExample(ExampleViewModel exampleViewModel)
+    public async Task UpdateExample(ExampleViewModel exampleViewModel)
     {
-        _mapper.Map<Example>(exampleViewModel);
-        return _exampleRepository.UpdateAsync(_mapper.Map<Example>(exampleViewModel));
+        var exampleEntity = _mapper.Map<Example>(exampleViewModel);
+        await _exampleRepository.UpdateAsync(exampleEntity);
     }
 }

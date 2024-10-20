@@ -2,11 +2,11 @@ services:
   db:
     image: postgres:latest
     environment:
-      POSTGRES_DB: db{{SOLUTION_NAME}}
-      POSTGRES_USER: u{{SOLUTION_NAME}}
-      POSTGRES_PASSWORD: p{{SOLUTION_NAME}}
+      POSTGRES_DB: ${PG_DB_{{SOLUTION_NAME}}}
+      POSTGRES_USER: ${PG_DB_{{SOLUTION_NAME}}_USER}
+      POSTGRES_PASSWORD: ${PG_DB_{{SOLUTION_NAME}}_PASSWORD}
     ports:
-      - "54320:5432"
+      - "${PG_DB_{{SOLUTION_NAME}}_EXTERNAL_PORT}:5432"
     volumes:
       - pgdata_{{SOLUTION_NAME}}:/var/lib/postgresql/data
 

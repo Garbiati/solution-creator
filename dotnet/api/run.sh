@@ -18,6 +18,9 @@ handle_replace_directory() {
 # Set the environment variable for the project name
 export SOLUTION_NAME=${1:-Garbiati}
 
+# generate a random number between 1000 and 9999
+export DB_EXTERNAL_PORT=$((1000 + RANDOM % 8999))
+
 # Set the environment variable for the project directory
 export SOLUTION_DIRECTORY="$HOME/$SOLUTION_NAME"
 
