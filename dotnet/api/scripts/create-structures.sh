@@ -8,23 +8,23 @@ rm "$SOLUTION_NAME.Infra.IoC/Class1.cs"
 rm "$SOLUTION_NAME.Api/$SOLUTION_NAME.Api.http"
 print_info "Removed automatically created Class1.cs files."
 
-
 mkdir -p ".config"
 mkdir -p ".vscode"
 
 # Create basic structures for Domain, Application, and Infra.Data
-mkdir -p "$SOLUTION_NAME.Domain/Aggregates"
 mkdir -p "$SOLUTION_NAME.Domain/Common"
 mkdir -p "$SOLUTION_NAME.Domain/Entities"
 mkdir -p "$SOLUTION_NAME.Domain/Enums"
+mkdir -p "$SOLUTION_NAME.Domain/Exceptions"
 mkdir -p "$SOLUTION_NAME.Domain/Interfaces"
 mkdir -p "$SOLUTION_NAME.Domain/Validations"
 
 mkdir -p "$SOLUTION_NAME.Application/Interfaces"
 mkdir -p "$SOLUTION_NAME.Application/Mappings"
 mkdir -p "$SOLUTION_NAME.Application/Services"
-mkdir -p "$SOLUTION_NAME.Application/ViewModels/Example"
-
+mkdir -p "$SOLUTION_NAME.Application/DTO/Example"
+mkdir -p "$SOLUTION_NAME.Application/DTO/ExampleItem"
+mkdir -p "$SOLUTION_NAME.Application/DTO/Shared"
 
 mkdir -p "$SOLUTION_NAME.Infra.Data/Context"
 mkdir -p "$SOLUTION_NAME.Infra.Data/EntitiesConfiguration"
