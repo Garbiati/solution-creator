@@ -30,3 +30,6 @@ dotnet add "$SOLUTION_NAME.Api/$SOLUTION_NAME.Api.csproj" package DotNetEnv
 
 # Add NewtonsoftJson package to the API project
 dotnet add "$SOLUTION_NAME.Api/$SOLUTION_NAME.Api.csproj" package Microsoft.AspNetCore.Mvc.NewtonsoftJson
+
+# Add Swashbuckle packages to the API project
+dotnet add "$SOLUTION_NAME.Api/$SOLUTION_NAME.Api.csproj" package Swashbuckle.AspNetCore.Annotations
