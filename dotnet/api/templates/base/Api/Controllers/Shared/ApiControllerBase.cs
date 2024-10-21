@@ -2,6 +2,7 @@ using {{SOLUTION_NAME}}.Application.DTO.Example;
 using {{SOLUTION_NAME}}.Application.Interfaces;
 using {{SOLUTION_NAME}}.Domain.Entities;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.JsonPatch.Operations;
 using Microsoft.AspNetCore.Mvc;
 
 namespace {{SOLUTION_NAME}}.Api.Controllers.Shared
@@ -57,11 +58,17 @@ namespace {{SOLUTION_NAME}}.Api.Controllers.Shared
             }
         }
 
-        [HttpPatch("{id}")]
-        public async Task<IActionResult> Patch(Guid id, [FromBody] JsonPatchDocument<TUpdateDto> patchDoc)
+        public async Task<IActionResult> Patch(Guid id, [FromBody] Dictionary<string, object> updates)
         {
             try
             {
+                var patchDoc = new JsonPatchDocument<TUpdateDto>();
+
+                foreach (var update in updates)
+                {
+                    patchDoc.Operations.Add(new Operation<TUpdateDto>("replace", update.Key, null, update.Value));
+                }
+
                 await _service.PatchAsync(id, patchDoc);
                 return NoContent();
             }

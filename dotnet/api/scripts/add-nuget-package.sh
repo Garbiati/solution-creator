@@ -27,3 +27,6 @@ dotnet add "$SOLUTION_NAME.Api/$SOLUTION_NAME.Api.csproj" package Microsoft.AspN
 
 # Add dotnetenv package to the API project
 dotnet add "$SOLUTION_NAME.Api/$SOLUTION_NAME.Api.csproj" package DotNetEnv
+
+# Add NewtonsoftJson package to the API project
+dotnet add "$SOLUTION_NAME.Api/$SOLUTION_NAME.Api.csproj" package Microsoft.AspNetCore.Mvc.NewtonsoftJson
