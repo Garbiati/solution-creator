@@ -9,8 +9,6 @@ using {{SOLUTION_NAME}}.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Reminder.Infra.Data.Repositories;
-
 
 namespace {{SOLUTION_NAME}}.Infra.IoC
 {
